@@ -1,0 +1,19 @@
+name: Integration
+on:
+  push:
+
+jobs:
+  docker_publish:
+    runs-on: 'ubuntu-20.04'
+    strategy:
+      matrix:
+        node-version: [14.x, 16.x, 18.x, 20.x]
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+      - run: npm ci
+      - run: npm run build
+    #   - run: npm run test # Curretnly there are no playwrite tests

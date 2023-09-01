@@ -11,7 +11,7 @@ on:
 
 jobs:
   docker_publish:
-    runs-on: 'ubuntu-20.04'
+    runs-on: 'ubuntu-22.04'
 
     steps:
       - uses: actions/checkout@v3
@@ -21,4 +21,4 @@ jobs:
         uses: macbre/push-to-ghcr@master
         with:
           image_name: ${{ github.repository }} # it will be lowercased internally
-          github_token: ${{ secrets.TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}

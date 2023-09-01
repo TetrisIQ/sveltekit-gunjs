@@ -3,7 +3,7 @@ on:
   push:
 
 jobs:
-  docker_publish:
+  test_on_node_versions:
     runs-on: 'ubuntu-20.04'
     strategy:
       matrix:

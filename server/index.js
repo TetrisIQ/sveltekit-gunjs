@@ -1,5 +1,5 @@
 import express from 'express';
-import { createServer } from 'http';
+import { createServer } from 'https';
 import Gun from 'gun';
 
 import { handler } from '../build/handler.js';

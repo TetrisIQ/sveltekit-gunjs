@@ -22,3 +22,5 @@ jobs:
         with:
           image_name: ${{ github.repository }} # it will be lowercased internally
           github_token: ${{ secrets.GITHUB_TOKEN }}
+      - name: run deploy hook
+        run: curl ${{ secrets.DEPLOY_HOOK }}

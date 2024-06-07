@@ -4,7 +4,7 @@ import Gun from 'gun';
 
 import { handler } from '../build/handler.js';
 
-const port = 8765;
+const port = process.env.PORT || 8765;
 const app = express();
 
 app.use(Gun.serve);

@@ -20,6 +20,9 @@
 	});
 	let message: string;
 	function sendMessage() {
+		if($messages === undefined) {
+			messages.set([])
+		}
 		if (message !== '') {
 			$messages.push(message);
 			gun.get('chat').put({ m: JSON.stringify($messages) });
@@ -31,7 +34,6 @@
 
 <div class="flex flex-col justify-center items-center space-y-1">
 	<div class="item h-32"><h1 class="text-3xl font-bold underline">SvelteKit / GUN example</h1></div>
-
 	{#if $messages !== undefined}
 		{#each $messages as comment}
 			<div class="flex my-4 gap-4">
